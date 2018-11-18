@@ -1,0 +1,48 @@
+﻿@using Rabe_Celina_HW6.Models
+@model IEnumerable<Rabe_Celina_HW6.Models.OrderDetail>
+@{
+    ViewBag.Title = "RemoveFromOrder";
+}
+<h2>Modify Order Items</h2>
+<div>
+
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityOrdered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExtendedPrice)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityOrdered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtendedPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "OrderDetails", new { id = item.OrderDetailID }, null) |
+                @Html.ActionLink("Delete", "Delete", "OrderDetails", new { id = item.OrderDetailID }, null)
+            </td>
+        </tr>
+    }
+</table>

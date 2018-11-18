@@ -1,0 +1,74 @@
+@using Rabe_Celina_HW6.Models
+@model Rabe_Celina_HW6.Models.Supplier
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferred)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Preferred)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <table class="table table-hover table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SupplierDetail cd in Model.SupplierDetails)
+            {
+                <tr>
+                    <td>@cd.Product.Name</td>
+                    <td>@cd.Product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SupplierID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,63 @@
+@using Rabe_Celina_HW6.Controllers
+@using Rabe_Celina_HW6.Models
+@model Rabe_Celina_HW6.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SKU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SKU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <table class="table table-hover table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Suppliers</th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (SupplierDetail cd in Model.SupplierDetails)
+           {
+               <tr>
+                   <td>@cd.Supplier.SupplierName</td>
+               </tr>
+           }
+       </tbody>
+    </table>
+</div>
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
